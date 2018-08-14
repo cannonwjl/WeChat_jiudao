@@ -1,0 +1,21 @@
+
+{
+  "pages": [
+    "pages/classic/classic",
+    "pages/logs/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "Waka-can",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"default",
+    "navigationBarBackgroundColor": "#fff00f",
+    "backgroundColor": "#b30000",
+    "enablePullDownRefresh": true
+  },
+ 
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

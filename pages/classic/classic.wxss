@@ -1,0 +1,36 @@
+/* pages/classic/classic.wxss */
+.chunk{
+  width: 100px;
+  height: 100px;
+  /* //行内元素
+  display: inline-block; */
+}
+/* flex flexible box缩写为flex  弹性盒子：被弹性盒子包裹的 view 失去block（块）性质，
+即使加入block 也没有block的性质 */
+/* flex container flex :indeterminate */
+
+  
+.container{
+  display: flex;
+  /* //  flex-direction: column;设置盒子内排布方式  column竖向排列 row横向排列（系统默认是row） */
+  /* //column-reverse 竖排+倒序     row-reverse 横排+倒序*/
+
+  /* //对于view组件  width:不设置默认为100%  height: 是自适应的根据内部元素决定
+    reverse会改变对齐方式和排布方式 如果高为400px 那么也会顶到下边 flex-direction: column-reverse；+height:100px */
+  flex-direction: column-reverse; 
+  /* /justify-content: flex-end; */
+  justify-content: flex-end;
+  /* /justify-content: flex-end 主轴 交叉轴 */
+  align-items: center;
+  height: 400px;
+  background-color: #999999;
+}
+.color1{
+  background-color: blue;
+}
+.color2{
+  background-color: aqua;
+}
+.color3{
+  background-color: burlywood;
+}
