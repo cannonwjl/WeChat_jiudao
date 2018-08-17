@@ -1,3 +1,6 @@
+import {HTTP} from '../../util/http.js'
+//module HTTP;
+let http =new HTTP()
 // pages/classic/classic.js
 Page({
 
@@ -13,16 +16,22 @@ Page({
    */
   onLoad: function (options) {
     console.log(this.data.test);
-       wx.request({
-         url: 'http://bl.7yue.pro/v1/classic/latest',
-         header:{
-           appkey:"pe6lyAeHjpf7FrQf"
-         },
-         //箭头函数
-         success:(res)=>{
-           console.log(this.data.test)
-         }
-       })
+    http.request({
+      url:"/classic/latest",
+      success:(res)=>{
+        console.log(res)
+      }
+    })
+      //  wx.request({
+      //    url: 'http://bl.7yue.pro/v1/classic/latest',
+      //    header:{
+      //      appkey:"pe6lyAeHjpf7FrQf"
+      //    },
+      //    //箭头函数
+      //    success:(res)=>{
+      //      console.log(this.data.test)
+      //    }
+      //  })
   },
 
   /**
