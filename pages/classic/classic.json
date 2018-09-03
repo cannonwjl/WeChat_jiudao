@@ -1,6 +1,7 @@
 {
   "usingComponents":{
 
-     "w-like":"/components/like/index"
+     "w-like":"/components/like/index",
+     "w-movie":"/components/classic/movie/index"
   }
 }

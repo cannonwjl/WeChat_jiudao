@@ -1,6 +1,6 @@
-import {HTTP} from '../../util/http.js'
+import {ClassicModel} from '../../models/classic.js'
 //module HTTP;
-let http =new HTTP()
+let classic = new ClassicModel()
 // pages/classic/classic.js
 Page({
 
@@ -8,20 +8,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-    test:1,
+    classic:null,//理解模块数据更新 //
+   // test:1,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(this.data.test);
-    http.request({
-      url:"/classic/latest",
-      success:(res)=>{
-        console.log(res)
-      }
+    console.log("运行到了onLoak了");
+
+//异步与同步 getlatest
+//数据更新
+//this.data.test=2 //对于data下的test数据更新不能这么用
+    classic.getLatest((res)=>{
+      console.log(res);
+    this.setData({
+      classic:res,
+      test:3
     })
+    console.log(this.data);
+})
+
+
+
+
+    //此函数移动到了 models/classic.js方法下 2018-8-26
+    // http.request({
+    //   url:"/classic/latest",
+    //   success:(res)=>{
+    //     console.log(res)
+    //   }
+    // })
       //  wx.request({
       //    url: 'http://bl.7yue.pro/v1/classic/latest',
       //    header:{

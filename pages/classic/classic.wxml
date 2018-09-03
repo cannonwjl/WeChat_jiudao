@@ -6,4 +6,6 @@
   <view class='chunk color3'>3</view>
 </view> -->
 <!-- //自定义组件 -->
-<w-like />
+<w-like  like="{{classic.data.like_status}}"  count="{{classic.data.fav_nums}}"/>
+<!-- <text>{{test}}</text> -->
+<w-movie img="{{classic.data.image}}" content="{{classic.data.content}}" />
