@@ -33,6 +33,8 @@ Component({
   methods: {
     onLike:function()
     {
+     //自定义事件
+
       // var /全局变量    let //局部变量
       var like=this.properties.like;
       var count=this.properties.count;
@@ -43,6 +45,11 @@ Component({
          like:like,
          count:count
        });
+       //激活
+      let behavior=this.properties.like?'like':'cancel';
+      this.triggerEvent('like',{
+        behavior:behavior
+      },{});
      console.log(like);
     }
   }

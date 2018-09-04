@@ -34,3 +34,8 @@ git学习
 对data里的数据更新 要在setData里进行更新 (this.data.test=2 //对于data下的test数据更新不能这么用)
 ========================
 完成8-4节 movie组件的实现
+
+2018-9-4
+完成8-5和8-6  粒度与自定义事件
+看完8-7 遇到 POST http://bl.7yue.pro/v1/like 400 (BAD REQUEST)
+ 问题 有待解决

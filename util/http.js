@@ -29,7 +29,7 @@ class HTTP
          //endsWith
          let code = res.statusCode.toString();
          if (code.startsWith('2')) {
-           params.success(res)
+           params.success && params.success(res)
          } else {
             //这里是服务去异常才会调用这里
             //提示错误信息

@@ -1,6 +1,9 @@
 import {ClassicModel} from '../../models/classic.js'
+import {LikeModel} from
+'../../models/like.js'
 //module HTTP;
-let classic = new ClassicModel()
+let classicModel = new ClassicModel()
+let likeModel = new LikeModel()
 // pages/classic/classic.js
 Page({
 
@@ -21,7 +24,7 @@ Page({
 //异步与同步 getlatest
 //数据更新
 //this.data.test=2 //对于data下的test数据更新不能这么用
-    classic.getLatest((res)=>{
+    classicModel.getLatest((res)=>{
       console.log(res);
     this.setData({
       classic:res,
@@ -31,7 +34,7 @@ Page({
 })
 
 
-
+   
 
     //此函数移动到了 models/classic.js方法下 2018-8-26
     // http.request({
@@ -52,6 +55,11 @@ Page({
       //  })
   },
 
+  onLike: function (event) {
+    console.log(event);
+    let behavior=event.detail.behavior;
+    likeModel.like(behavior,this.data.classic.id,this.data.classic.type);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

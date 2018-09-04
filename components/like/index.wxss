@@ -6,6 +6,7 @@
    /* 必须指定宽度，否则会出现移动 */
   /* width:120rpx;  */
   padding:10rpx;
+  width: 90rpx;
 }
 .container image{
   width: 32rpx;
