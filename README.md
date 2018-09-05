@@ -39,3 +39,11 @@ git学习
 完成8-5和8-6  粒度与自定义事件
 看完8-7 遇到 POST http://bl.7yue.pro/v1/like 400 (BAD REQUEST)
  问题 有待解决
+
+ 2018-9-5
+ 解决8-7以上问题
+ 经过调试 通过打印
+ //通过打印 id 值 和 category 值 来查看是否获取到  打印后发现无定义 知道了是值没获取到 通过对数组分析知道是 classic内还有一层
+ //这里是this.data.classic.data.id;而不是视频中的this.data.classic.id;
+===========================================
+完成8-8有关组件生命周期函数 和 组件属性和data声明注意事项 在<!--components/epsoide/index-->
