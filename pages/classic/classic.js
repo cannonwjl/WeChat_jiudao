@@ -14,6 +14,7 @@ Page({
     classic:null,//理解模块数据更新 //
    // test:1,
     like:false,
+    
   },
 
   /**
@@ -30,9 +31,12 @@ Page({
      // this._getLikeStatus(res.id, res.type);
     this.setData({
       classic:res,
-      test:3
+     // test:3
+      
+     
     })
-      console.log(this.res);
+      console.log(this.data.classic);
+      console.log(this.data);
 })
 
 
