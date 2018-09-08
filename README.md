@@ -53,3 +53,12 @@ git学习
 ==============================
 完成8-10章 在填入月份是出现了一点无法正确显示数据的情况 应该是没有对应好
 最后调试成功 
+
+2018-9-8
+8-11 observer函数应用
+在模板下properties下的值 用observer函数对数字进行实时处理
+8-12 注意防范内存泄漏  RangeError: Maximum call stack size exceeded 这个错误是内存泄漏的错误 当接受到是数字 显示08 在前面补零但是格式改为String
+注：不要再一个properties下的observer下修改一个属性的属性类型
+8-13 千万不要在observer中修改自身属性值
+8-14 epsoide组件和流行页面样式
+注意：组件不允许用id
