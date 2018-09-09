@@ -1,0 +1,20 @@
+/* components/navi/index.wxss */
+
+.container{
+  width: 600rpx;
+  height: 80rpx;
+  background-color: #f7f7f7f7;
+  border-radius: 2prx;
+  display: inline-flex;
+  flex-direction: row;
+  /* /实现三个元素俩个在俩头 中间一个 */
+  justify-content: space-between;
+  align-items: center;
+}
+.icon{
+  height: 80rpx;
+  width: 80rpx;
+}
+.title{
+  font-size: 28rpx;
+}

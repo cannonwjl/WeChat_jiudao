@@ -6,6 +6,7 @@
   <view class='chunk color3'>3</view>
 </view> -->
 <!-- //自定义组件 -->
+<view class='container'>
 <view class='header'>
   <w-epsoide class="epsoide" index="{{classic.data.index}}" />
   <w-like class="like" bind:like="onLike" like="{{classic.data.like_status}}" count="{{classic.data.fav_nums}}" />
@@ -13,3 +14,7 @@
 
 <!-- <text>{{test}}</text> -->
 <w-movie img="{{classic.data.image}}" content="{{classic.data.content}}" />
+
+<w-navi  bind:left="onNext"  bind:right="onPrevious" title="{{classic.data.title}}"  first="{{first}}" latest="{{latest}}" class='navi' />
+
+</view>

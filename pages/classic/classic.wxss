@@ -10,7 +10,7 @@
 /* flex container flex :indeterminate */
 
   
-.container{
+.container1{
   display: flex;
   /* //  flex-direction: column;设置盒子内排布方式  column竖向排列 row横向排列（系统默认是row） */
   /* //column-reverse 竖排+倒序     row-reverse 横排+倒序*/
@@ -36,11 +36,20 @@
 }
 
 
-
+.container{
+  /* //默认自适应，由于图片撑起来整个所以还需注意这方面 */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* //2018-9-8 */
 .header{
+  width: 100%;
+  
   display: flex;
+  
   flex-direction: row;
   height: 100rpx;
   align-items: center;
@@ -56,4 +65,8 @@
 
 .like{
   margin-top: 6rpx;
+}
+.navi{
+  position: absolute;
+  bottom: 40rpx;
 }

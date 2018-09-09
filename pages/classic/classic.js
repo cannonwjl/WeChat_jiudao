@@ -14,6 +14,8 @@ Page({
     classic:null,//理解模块数据更新 //
    // test:1,
     like:false,
+    first:true,
+    latest:false,
     
   },
 
