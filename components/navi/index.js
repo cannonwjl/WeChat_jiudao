@@ -29,7 +29,7 @@ Component({
     //2在内部设置 this.triggerEvent('left',{},{});设置自定义监听
     //3在classic.wxml里引用 bind:left="onLeft"  和 bind：right="onRight"
     //注意，以上出来监听函数名字其它必须小写
-    onNext:function(event)
+    onLeft:function(event)
    {
      if(!this.properties.latest)
      {
@@ -38,7 +38,7 @@ Component({
      }
      
    },
-    onPrevious:function(event){
+    onRight:function(event){
       if (!this.properties.first) {
      this.triggerEvent('right',{},{});
         console.log("this is onPrevious function");

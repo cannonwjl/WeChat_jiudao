@@ -75,6 +75,14 @@ Page({
     console.log("behavior is " + behavior + " id is " + id + " type is " + category );
     likeModel.like(behavior, id, category);
   },
+
+  onNext:function(event)
+  {
+      console.log('this is onNext');
+  },
+  onPrevious:function(event){
+    console.log('this is onPrevious');
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -2,7 +2,7 @@
 <!-- <text>components/navi/index.wxml</text> -->
 
 <view class='container'>
-  <image class='icon' bind:tap="onNext" src='{{first?disLeftSrc:leftSrc}}'></image>
+  <image class='icon' bind:tap="onLeft" src='{{first?disLeftSrc:leftSrc}}'></image>
   <text class='title'>{{title}}</text>
-  <image class='icon' bind:tap="onPrevious" src='{{latest?disRightSrc:rightSrc}}'></image>
+  <image class='icon' bind:tap="onRight" src='{{latest?disRightSrc:rightSrc}}'></image>
 </view>

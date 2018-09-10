@@ -1,0 +1,10 @@
+<!--components/classic/music/index.wxml-->
+<!-- //<text>components/classic/music/index.wxml</text> -->
+
+<view>
+   <image src='{{img}}'></image>
+   <image src='{{playSrc}}'></image>
+   <!-- /如果是不需要切换的图片那么可以直接写死在了标签里 -->
+   <image src='images/music@tag.png'></image>
+   <text>{{content}}</text>
+</view>
