@@ -31,15 +31,16 @@ Component({
     //注意，以上出来监听函数名字其它必须小写
     onLeft:function(event)
    {
-     if(!this.properties.latest)
+     if(this.properties.latest)
      {
        this.triggerEvent('left', {}, {});
-       console.log("this is onNext function");
+       console.log("this is onLeft function");
      }
      
    },
+    
     onRight:function(event){
-      if (!this.properties.first) {
+      if (this.properties.first) {
      this.triggerEvent('right',{},{});
         console.log("this is onPrevious function");
       }

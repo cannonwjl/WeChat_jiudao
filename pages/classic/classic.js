@@ -81,7 +81,14 @@ Page({
       console.log('this is onNext');
   },
   onPrevious:function(event){
-    console.log('this is onPrevious');
+     console.log('this is onPrevious');
+    let index =this.data.classic.data.index;
+    console.log(index);
+    classicModel.getPrevious(index,(res)=>{
+      this.setData({
+        classic: res,
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
