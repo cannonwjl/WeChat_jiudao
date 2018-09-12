@@ -15,6 +15,6 @@
 <!-- <text>{{test}}</text> -->
 <w-movie img="{{classic.data.image}}" content="{{classic.data.content}}" />
           
-<w-navi  bind:left="onNext"  bind:right="onPrevious" title="{{classic.data.title}}"  first="{{first}}" latest="{{latest}}" class='navi' />
+<w-navi  bind:left="onNext"  bind:right="onPrevious" title="{{classic.data.title}}" latest="{{latest}}"  first="{{first}}"  class='navi' />
 
 </view>

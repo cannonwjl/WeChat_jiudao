@@ -28,15 +28,15 @@ Page({
 //异步与同步 getlatest
 //数据更新
 //this.data.test=2 //对于data下的test数据更新不能这么用
+//数据更新，storage
     classicModel.getLatest((res)=>{
       console.log(res);
      // this._getLikeStatus(res.id, res.type);
     this.setData({
       classic:res,
-     // test:3
-      
-     
+     // test:3 
     })
+    // latestClassic latesIndex currentClassic currentIndex
       console.log(this.data.classic);
       console.log(this.data);
 })
@@ -75,21 +75,35 @@ Page({
     console.log("behavior is " + behavior + " id is " + id + " type is " + category );
     likeModel.like(behavior, id, category);
   },
-
+//========================================================
   onNext:function(event)
   {
       console.log('this is onNext');
+      this._updateClassic('next');
   },
+
+
   onPrevious:function(event){
      console.log('this is onPrevious');
-    let index =this.data.classic.data.index;
-    console.log(index);
-    classicModel.getPrevious(index,(res)=>{
+     this._updateClassic('previous');
+  },
+
+
+//私有函数放到最下面
+  _updateClassic: function (nextOrPrevious) {
+    let index = this.data.classic.data.index;
+
+    classicModel.getClassic(index, nextOrPrevious, (res) => {
       this.setData({
         classic: res,
+        latest: classicModel.isLatest(res.data.index),
+        first: classicModel.isFirst(res.data.index)
       })
+      //  console.log(latest + " " + first);
     })
   },
+
+  //=====================================================
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
