@@ -30,7 +30,8 @@ class ClassicModel extends HTTP{
     {
       this.request({
         //模板字符串应用
-        url: 'classic/' + index + '/' + nextOrPrevious,
+        //以下下代码用了模板字符串等效为 url: 'classic/' + index + '/' + nextOrPrevious,
+        url: `'classic/ ${index}/${nextOrPrevious} `,
         success: (res) => {
           wx.setStorageSync(this._getKye(res.data.index), res)
           sCallback(res)

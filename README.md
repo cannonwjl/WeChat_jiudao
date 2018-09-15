@@ -87,3 +87,15 @@ git学习
 10-1缓存的意义 与 实现
 10-2 缓存所带来的 点赞不同步问题
 10-3 ES6新增语法
+
+2018-9-14
+10-4 完成like点赞不同步问题
+
+2018-9-15
+10-5 hidden属性与wx:if属性
+如果频繁切换 建议用hideen  hidden会在开始把很多东西都渲染好  wx：if只有为true才开始渲染
+10-6 用@import导入相同的修饰 在mouis.wsxx下
+10-7 music样式
+10-8 有俩种音乐API  老版 和 新版backgroundAudioManager音乐管理对象
+10-9 组件之间通讯   俩个平行之间的组件不容易传递信息
+10-10 hidden不会触发 detached但是 wxif会

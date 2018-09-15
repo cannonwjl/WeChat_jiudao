@@ -16,7 +16,8 @@ Page({
     like:false,
     first:true,
     latest:false,
-    
+    likeCount:0,
+    likeStatus:false,
   },
 
   /**
@@ -24,7 +25,7 @@ Page({
    */
   onLoad: function (options) {
     console.log("运行到了onLoak了");
-
+ //   this._getLikeStatus(res.dta.id, res.data.type)
 //异步与同步 getlatest
 //数据更新
 //this.data.test=2 //对于data下的test数据更新不能这么用
@@ -33,12 +34,16 @@ Page({
       console.log(res);
      // this._getLikeStatus(res.id, res.type);
     this.setData({
+      //扩展运算符 ES6新增语法 解决反复在wxml里classic.~的问题
+      //以下代码可以换为  ...res  并且在classic.data.index 换为data.index
       classic:res,
      // test:3 
+      likeCount: res.data.fav_nums,
+      likeStatus:res.data.like_status,
     })
     // latestClassic latesIndex currentClassic currentIndex
       console.log(this.data.classic);
-      console.log(this.data);
+      console.log(this.data.like_status);
 })
 
 
@@ -94,6 +99,7 @@ Page({
     let index = this.data.classic.data.index;
 
     classicModel.getClassic(index, nextOrPrevious, (res) => {
+      this._getLikeStatus(res.data.id,res.data.type)
       this.setData({
         classic: res,
         latest: classicModel.isLatest(res.data.index),
@@ -103,17 +109,7 @@ Page({
     })
   },
 
-  //=====================================================
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-   
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
+ 
   onShow: function () {
   //模板字符串
   //
@@ -129,38 +125,16 @@ text:function()
   return 123
 },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+_getLikeStatus:function(artID,category)
+{
+   likeModel.getClassicLikeStatus(artID,category,
+   (res)=>{
+      this.setData({
+          likeCount:res.data.fav_nums,
+          likeStatus:res.data.like_status
+      })
+      
+   })
+}
   
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })
