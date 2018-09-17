@@ -24,10 +24,17 @@ Component({
         playSrc:'images/player@playing.png'
   },
 
-
+attached:function()
+{
+  this._recoverStatus()
+  this._monitorSwitch()
+}
+,
 detached:function(event)
 {
   //mMgr.stop()
+  //console.log("this is detached");
+ // this._recoverStatus();
 },
   /**
    * 组件的方法列表
@@ -51,6 +58,47 @@ detached:function(event)
         })
         mMgr.pause();
       }
+    },
+    //回复逻辑状态
+    _recoverStatus:function(){
+      //调试
+      // console.log(mMgr.paused);
+      // console.log(mMgr.src);
+      // console.log(this.properties.src);
+      
+      if (mMgr.paused) {
+        this.setData({
+          playing: false
+        })
+        return
+      }
+      if (mMgr.src == this.properties.src) {
+        if (!mMgr.paused) {
+          this.setData({
+            playing: true
+          })
+        }
+      }
+    },
+    //出现操控音乐界面是 对界面操作小程序图标也改变
+    _monitorSwitch:function()
+    {
+      //播放状态
+      mMgr.onPlay(()=>{
+        this._recoverStatus()
+      })
+      //停止操控界面或小程序界面
+      mMgr.onPause(() => {
+        this._recoverStatus()
+      })
+      //x关掉操控界面
+      mMgr.onStop(() => {
+        this._recoverStatus()
+      })
+      //一首歌放完的状态
+      mMgr.onEnded(() => {
+        this._recoverStatus()
+      })
     }
   }
 })
