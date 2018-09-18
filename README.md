@@ -108,4 +108,11 @@ git学习
   动画API CSS3 canvas 游戏用的多
 注意：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。
 
+11-1 taBar配置
+
+2018-9-18
+11-2 airbnb编码规范
+11-3 纯粹的promise与async,await
+11-4 promise的本质与用法
+
 
