@@ -115,4 +115,10 @@ git学习
 11-3 纯粹的promise与async,await
 11-4 promise的本质与用法
 
+2018-9-19
+11-5 promise重构
+11-6 Promise重构er 重构 REQUEST
+11-7 promise重构san  对象解构
+11-8 Promise的正确用法
+2018-9-19完成 第11章
 

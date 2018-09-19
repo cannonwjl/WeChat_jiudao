@@ -1,3 +1,9 @@
+import{
+  BookModel
+} from '../../models/book.js'
+
+let bookModel=new BookModel()
+
 // pages/book/book.js
 Page({
 
@@ -8,13 +14,46 @@ Page({
       //纯粹callback   回调地狱 return
       //promise  代码风格  多个异步等待合并。
       //async await ES2017 小程序 不支持
-      
+      //一次调用 多次调用服务器API 链式调用 3个API API1 API2 API3
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    bookModel.getHotList()
+    .then(res=>{
+      console.log(res);
+      return bookModel.getMyBookCount()
+    })
+    .then(res=>{
+      console.log(res)
+      return bookModel.getMyBookCount()
+    })
+    .then(res=>{
+      console.log(res)
+      return bookModel.getMyBookCount()
+    })
+
+
+
+    //以下为Promise回调地狱 错误的调用不建议
+  //  const hotList=bookModel.getHotList()
+  //  hotList.then(res=>{
+  //    console.log(res)
+  //   bookModel.getMyBookCount()
+  //     .then(res=>
+  //     {
+  //       console.log(res)
+  //     }
+  //     )
+  //  })
+   
+   
+   
+   
+   //以下为练习代码 无具体作用 为了说明Promise
      //Promise 对象 函数
      //对象 保存状态 函数 
      //Promise 第一步

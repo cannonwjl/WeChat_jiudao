@@ -10,16 +10,23 @@ const tips={
 
 class HTTP
 {
-   request(params){
-     // url ,data, method
-     if(!params.method)
+  //小程序里叫解构
+  //以下代码加上花括号 以后变成了一个对象   
+  //request({url, resolve, data = {}, method = 'GET'})
+  request({url,resolve, data = {}, method = 'GET'})
      {
-       params.method="GET"
+        return new Promise((resolve,reject)=>{
+          this._request(url,resolve,reject,data,method)
+          
+        })
      }
+   _request(url,resolve,reject,data={},method='GET'){
+     // url ,data, method
+ 
      wx.request({
-        url:config.api_base_url+params.url,
-        method:params.method,
-        data:params.data,
+        url:config.api_base_url+url,
+        method:method,
+        data:data,
         header:{
           'content-type':"application/json",
           'appkey':config.appkey
@@ -27,9 +34,9 @@ class HTTP
         success: (res) => {
          //startsWith
          //endsWith
-         let code = res.statusCode.toString();
+          const code = res.statusCode.toString();
          if (code.startsWith('2')) {
-           params.success && params.success(res)
+          resolve(res)
          } else {
             //这里是服务去异常才会调用这里
             //提示错误信息
@@ -39,7 +46,8 @@ class HTTP
             //   duration:2000
             // })
             //提示错误 建立表从tip获取
-           let error_code=res.data.error_code;
+           const error_code=res.data.error_code;
+           reject()
             this._show_error(error_code)
          }
 
@@ -54,6 +62,7 @@ class HTTP
         //  })
 
         //提示错误 建立表从tip获取
+         reject()
          this._show_error(1)
        }
      })
@@ -64,12 +73,13 @@ class HTTP
    _show_error(error_code)
    {
      //提示错误信息
-     if (error_code) {
-       error_code = 1;
+     if(error_code)
+     {
+       error_code=1;
      }
      const tip = tips[error_code]
      wx.showToast({
-       title: tip ? tip : tips[1],
+       title: tip?tip:tips[1],
        icon: "loading",
        duration: 2000
      })
