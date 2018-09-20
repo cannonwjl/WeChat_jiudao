@@ -6,11 +6,12 @@ let bookModel=new BookModel()
 
 // pages/book/book.js
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
   data: {
+    books:Object
       //纯粹callback   回调地狱 return
       //promise  代码风格  多个异步等待合并。
       //async await ES2017 小程序 不支持
@@ -22,19 +23,32 @@ Page({
    */
   onLoad: function (options) {
 
+
+
     bookModel.getHotList()
-    .then(res=>{
-      console.log(res);
-      return bookModel.getMyBookCount()
-    })
-    .then(res=>{
-      console.log(res)
-      return bookModel.getMyBookCount()
-    })
-    .then(res=>{
-      console.log(res)
-      return bookModel.getMyBookCount()
-    })
+      .then(res => {
+        console.log(res);
+      //this.data.books=res;
+      this.setData({
+        books:res
+      })
+      console.log(this.data.books)
+      })
+      
+
+    // bookModel.getHotList()
+    // .then(res=>{
+    //   console.log(res);
+    //   return bookModel.getMyBookCount()
+    // })
+    // .then(res=>{
+    //   console.log(res)
+    //   return bookModel.getMyBookCount()
+    // })
+    // .then(res=>{
+    //   console.log(res)
+    //   return bookModel.getMyBookCount()
+    // })
 
 
 

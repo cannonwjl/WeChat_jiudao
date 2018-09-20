@@ -6,6 +6,7 @@
     "pages/logs/index",
     "components/classic/movie/index",
     "components/epsoide/index"
+    
   ],
   "window": {
     "navigationBarTitleText": "Waka-can",
