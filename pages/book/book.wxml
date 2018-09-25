@@ -1,1 +1,38 @@
-<w-book book="{{books.data[0]}}" />
+<!-- for 循环 wx:for -->
+<!-- 小程序中叫列表渲染 -->
+<!-- 在小程序中用来循环的项 用 item  -->
+
+<!-- <block  wx:for="{{books.data}}" >
+<w-book book="{{item}}" />
+</block> -->
+
+<!-- ----------------------------------------------------
+以上代码也可以写成一下格式
+1
+<block  wx:for="{{books.data}}"  wx:for-item="itemlise" >
+<w-book book="{{itemlise}}" />
+</block>
+
+or
+2
+<w-book wx:for="{{books.data}}" book="{{item}}" /> 
+----------------------------------------------------------->
+
+<view class='container'>
+  <view class='header'>
+    <view class='box'>
+      <image src="/images/icon/search.png"></image>
+      <text>搜索书籍</text>
+    </view>
+  </view>
+  <view class='sub-container'>
+    <image class='head-img' src='/images/book/quality.png'></image>
+    <view class='books-container'>
+      <block wx:for="{{books.data}}">
+        <w-book book="{{item}}" />
+      </block>
+    </view>
+
+  </view>
+
+</view>
