@@ -5,8 +5,8 @@
     "pages/my/my",
     "pages/logs/index",
     "components/classic/movie/index",
-    "components/epsoide/index"
-    
+    "components/epsoide/index",
+    "pages/book-detail/book-detail"
   ],
   "window": {
     "navigationBarTitleText": "Waka-can",
@@ -17,27 +17,28 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "selectedColor":"#000000",
-    "backgroundColor":"#ffffff",
-    "color":"#c7c7c7",
-    "list": [{
-      "pagePath": "pages/classic/classic",
-      "text": "流行",
-      "iconPath": "/images/tab/classic.png",
-      "selectedIconPath": "/images/tab/classic@highlight.png"
-    },
-    {
-      "pagePath": "pages/book/book",
-      "text": "书籍",
-      "iconPath": "/images/tab/book.png",
-      "selectedIconPath": "/images/tab/book@highlight.png"
-    },
-    {
-      "pagePath": "pages/my/my",
-      "text": "喜欢",
-      "iconPath": "/images/tab/my.png",
-      "selectedIconPath": "/images/tab/my@highlight.png"
-    }
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "color": "#c7c7c7",
+    "list": [
+      {
+        "pagePath": "pages/classic/classic",
+        "text": "流行",
+        "iconPath": "/images/tab/classic.png",
+        "selectedIconPath": "/images/tab/classic@highlight.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "text": "书籍",
+        "iconPath": "/images/tab/book.png",
+        "selectedIconPath": "/images/tab/book@highlight.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "喜欢",
+        "iconPath": "/images/tab/my.png",
+        "selectedIconPath": "/images/tab/my@highlight.png"
+      }
     ]
   },
   "networkTimeout": {

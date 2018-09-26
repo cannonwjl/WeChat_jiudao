@@ -28,8 +28,10 @@ or
   <view class='sub-container'>
     <image class='head-img' src='/images/book/quality.png'></image>
     <view class='books-container'>
-      <block wx:for="{{books.data}}">
+      <block wx:key="{{books.data.id}}" wx:for="{{books.data}}">
         <w-book book="{{item}}" />
+        <!-- wx:key object 不重复 数字或着是字符串 -->
+
       </block>
     </view>
 
