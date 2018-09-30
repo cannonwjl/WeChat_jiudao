@@ -35,9 +35,9 @@ Page({
         })
         comments.then(res=>{
           this.setData({
-            comments:res.data
+            comments: res.data.comments
           })
-          console.log("this is comments:" + comments);
+          console.log(comments);
         })
         likeStatus.then(res=>{
           this.setData({
