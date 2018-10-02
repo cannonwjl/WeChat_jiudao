@@ -6,9 +6,12 @@
 </view>
   <view class='sub-container'>
    <text class='headline'>短评</text>
-   <block wx:for="{{comments.comments}}">
+   <view class='comment-container'>
+      <block wx:for="{{comments.comments}}">
        <w-tag text="{{item.content}}" />
    </block>
+   </view>
+
   </view>
  
   

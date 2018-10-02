@@ -26,6 +26,7 @@ Page({
         console.log(bid);
         const detail= bookModel.getDetail(bid);
         const comments=bookModel.getComments(bid);
+        console.log(comments);
         const likeStatus=bookModel.getLikeStatus(bid);
         detail.then(res=>{
           this.setData({
@@ -35,9 +36,9 @@ Page({
         })
         comments.then(res=>{
           this.setData({
-            comments: res.data.comments
+            comments: res.data
           })
-          console.log(comments);
+          console.log("this is comments:" + comments.count);
         })
         likeStatus.then(res=>{
           this.setData({
