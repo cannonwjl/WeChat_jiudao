@@ -172,12 +172,16 @@
   font-size: 22rpx;
   color: #aaa;
 }
-.comment-container>tag-cmp:first-child view{
+/* //子元素 选择器 后代选择器 
+  hack
+
+*/
+.comment-container>w-tag:first-child>view{
   background-color: #fffbdd;
 }
-/* .comment-container > tag-cmp:nth-child(2) view{
+ .comment-container>w-tag:nth-child(2)>view{
    background-color: #eefbff;
-} */
+} 
 
 /* .tag view{
   border-radius: 15px;
@@ -223,3 +227,10 @@
   margin-bottom: 30rpx;
 
 }
+.ex-tag1{
+   background-color: #fffbdd !important; 
+}
+.ex-tag2{
+   background-color: #d1c254 !important; 
+}
+/* //外部样式 用关键字 important来提高级别 */

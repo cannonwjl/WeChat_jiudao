@@ -3,8 +3,13 @@ Component({
   /**
    * 组件的属性列表
    */
+  options:{
+    multipleSlots:true
+  },
+  externalClasses:['tag-class'],
   properties: {
-    text:String
+    text:String,
+    num:String
   },
 
   /**
