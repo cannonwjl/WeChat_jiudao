@@ -1,14 +1,18 @@
+<wxs src="../../util/filter.wxs" module="util" />
+
 <view class='container'>
 <view class='head'>
   <image src='{{book.image}}'></image>
   <text class='title'>{{book.title}}</text>
   <text class='author'>{{book.author}}</text>
 </view>
+<!-- //短评部位 -->
   <view class='sub-container'>
    <text class='headline'>短评</text>
    <view class='comment-container'>
-      <block wx:for="{{comments.comments}}">
-       <w-tag tag-class="{{item.index==0?'ex-tag1':''||index==1?'ex-tag':''}}" text="{{item.content}}" >
+      <!-- <block wx:for="{{util.limit(comments, 3)}}"> 没有调试成功  -->
+       <block wx:for="{{comments.comments}}">
+       <w-tag tag-class="tag" text="{{item.content}}" >
        <text slot="after" class='num'>{{'+'+item.nums}}</text>
        </w-tag>
        
@@ -16,7 +20,64 @@
    </view>
 
   </view>
- 
-  
+ <!-- //内容简介 -->
+    <view class='sub-container'>
+      <text class="headline">内容简介</text>
+      <text class='content' decode='ture'>{{util.format(book.summary)}}</text>
+    </view>
+
+ <!-- //书籍信息 -->
+ <view class='sub-container'>
+    <text class='headline'>书本信心</text>
+    <view class='detail-contaner '>
+        <view class='vertical description'>
+          <text>出版社</text>
+          <text>出版年</text>
+          <text>页数</text>
+          <text>定价</text>
+          <text>装帧</text>
+        </view>
+        <view class='vertical'>
+           <text>{{book.publisher}}</text>
+           <text>{{book.pubdate}}</text>
+           <text>{{book.pages}}</text>
+           <text>{{book.price}}</text>
+           <text>{{book.binding}}</text>
+        </view>
+
+    </view>
+ </view>
+
 
 </view>
+<!-- 短评功能 -->
+<view class='post-container'>
+  <view class='post-fake'>
+     <text>输入短评</text>
+  </view>
+  <view class='like-container'>
+    <w-like bind:like="onLike" class='like'
+    like="{{likeStatus}}" count="{{likeCount}}" />
+  </view>
+</view>
+
+
+
+<!-- 
+<wxs module="util">
+  var limit = function(array, length) {
+    return array.slice(0, length)
+  }
+  var format = function(text){
+    if(!text){
+      return
+    }
+    var reg = getRegExp('\\\\n','g')
+    var text = text.replace(reg,'\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
+    return text
+  }
+  module.exports = {
+    limit: limit,
+    format:format
+  }
+</wxs> -->

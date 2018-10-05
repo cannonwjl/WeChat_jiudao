@@ -1,0 +1,23 @@
+var format = function(text) {
+  //wxs  模块 ES6 模块
+  if (!text) {
+    return
+  }
+  console.log(text)
+  var reg = getRegExp('\\\\n', 'g')
+  return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;')
+
+}
+//暂时没有用 没有调试成功 2018-10-5
+var limit = function (array, length) {
+  console.log("array");
+  console.log(array);
+  return array.slice(0, length)
+}
+//
+
+module.exports = {
+  limit: limit,
+  format: format,
+  
+}
