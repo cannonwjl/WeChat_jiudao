@@ -12,7 +12,8 @@ var format = function(text) {
 var limit = function (array, length) {
   console.log("array");
   console.log(array);
-  return array.slice(0, length)
+  return array
+  
 }
 //
 
