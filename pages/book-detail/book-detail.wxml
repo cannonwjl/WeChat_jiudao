@@ -9,6 +9,7 @@
 <!-- //短评部位 -->
   <view class='sub-container'>
    <text class='headline'>短评</text>
+   <text class='shadow' wx:if="{{comments==false}}">还没有短评</text>
    <view class='comment-container'>
       <!-- <block wx:for="{{util.limit(comments, 3)}}"> 没有调试成功  -->
       <!-- 2018-10-7 limit 这个函数依然没有调试成功 -->
@@ -24,7 +25,7 @@
  <!-- //内容简介 -->
     <view class='sub-container'>
       <text class="headline">内容简介</text>
-      <text class='content' decode='ture'>{{util.format(book.summary)}}</text>
+      <text class='content' decode='true'>{{util.format(book.summary)}}</text>
     </view>
 
  <!-- //书籍信息 -->
@@ -67,18 +68,20 @@
 <!-- //真正的短评 -->
 <view class='posting-container' wx:if="{{posting}}">
  <view class='post-header'>
-   <text>尽可点击标签+1</text>
+   <text wx:if="{{comments==true}}">尽可点击标签+1</text>
+   <text wx:else>暂无短评</text>
    <text class='cancel' bind:tap="onCancel">取消</text>
+   
 
  </view>
  <view class='comment-container'>
       <block wx:for="{{util.limit(comments.comments,3)}}" wx:key="3">
-       <w-tag bind:tap="onPost" tag-class="{{tool.highlight(index)}}" text="{{item.content}}" >
+       <w-tag bind:tapping="onPost" tag-class="{{tool.highlight(index)}}" text="{{item.content}}" >
        <text slot="after" class='num'>{{'+'+item.nums}}</text>
        </w-tag> 
    </block>
  </view>
- <input class='post' bind:tap="onPost" placeholder='短评最多12个字'></input>
+ <input class='post' bindconfirm='onPost' placeholder='短评最多12个字'></input>
 </view>
 
 <!-- 

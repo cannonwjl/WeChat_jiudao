@@ -17,8 +17,8 @@ Page({
     book: null,
     likeStatus: false,
     likeCount: 0,
-    detail: [],
-    likeStatus: false,
+    //detail: [],
+  
     posting: false
   },
 
@@ -72,7 +72,15 @@ Page({
   },
   onPost(event)
   {
-    const comment=event.detail.text
+    //console.log("this is onpost")
+    const comment = event.detail.text || event.detail.value
+    //const commentInput=event.detail.value
+    console.log(comment)
+    //console.log(commentInput)
+    if(!comment)
+    {
+      return
+    }
     if(comment.length>12)
     {
       wx.showToast({
@@ -81,18 +89,21 @@ Page({
       })
       return 
     }
-    bookModel.postComent(this.data.book.id,comment)
+    bookModel.postComment(this.data.book.id,comment)
     .then(res=>{
       wx.showToast({
         title: '+ 1',
         icon:"none"
-      })
-      this.data.comments.unshift({
-        comment:comment,
-        nums:1
-      })
+      }),              //unshift
+
+    this.data.comments.unshift({
+      //comment:comment, 以下是简写
+       content:comment,
+        nums: 1
+      }),
       this.setData({
-        comments:this.data.comments
+        comments:this.data.comments,
+        posting:false
       })
     }
     )

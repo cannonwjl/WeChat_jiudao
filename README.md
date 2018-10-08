@@ -171,6 +171,13 @@ git学习
 13-6短评功能分析
 13-7短评实现1
 
-2018-10-9                    
+2018-10-7                    
 13-9短评实现三
 遇到'length' of undefined 问题 有待调试
+
+2018-10-8
+13-13短评 本章节 三个问题 1界面样式问题  《问题解决》 修改了book-detail下的 head image样式
+                        2关于filter.wsx下limit无法使用问题
+                        3 book-detail.js下onPost函数book-detail.js? 
+                        Uncaught (in promise) TypeError: _this2.data.comments.unshift is not a function
+                        问题
