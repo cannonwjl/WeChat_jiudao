@@ -28,10 +28,10 @@ Page({
   onLoad: function(options) {
     //id
     const bid = options.bid;
-    console.log(bid);
+   // console.log(bid);
     const detail = bookModel.getDetail(bid);
     const comments = bookModel.getComments(bid);
-    console.log(comments);
+   // console.log(comments);
     const likeStatus = bookModel.getLikeStatus(bid);
     detail.then(res => {
       this.setData({
@@ -41,7 +41,7 @@ Page({
     })
     comments.then(res => {
       this.setData({
-        comments: res.data
+        comments: res.data.comments
       })
       console.log("this is comments:" + comments.count);
     })

@@ -10,9 +10,9 @@ var format = function(text) {
 }
 //暂时没有用 没有调试成功 2018-10-5
 var limit = function (array, length) {
-  console.log("array");
-  console.log(array);
-  return array
+  // console.log("array");
+  // console.log(array);
+  return array.slice(0,length)
   
 }
 //
