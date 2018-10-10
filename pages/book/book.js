@@ -11,12 +11,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books:Object
+    books:[],
       //纯粹callback   回调地狱 return
       //promise  代码风格  多个异步等待合并。
       //async await ES2017 小程序 不支持
       //一次调用 多次调用服务器API 链式调用 3个API API1 API2 API3
+      searching:false
   },
+
+  onSearching(event)
+  {
+    this.setData({
+      searching: true
+    })
+  },
+  onCancel(event)
+  {
+    this.setData({
+      searching: false
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

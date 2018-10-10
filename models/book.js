@@ -31,7 +31,7 @@ class BookModel extends HTTP
   getComments(bid)
   {
     return this.request({
-      url: `/book/${bid}/short_comment`,
+      url: `book/${bid}/short_comment`,
     })
   }
 

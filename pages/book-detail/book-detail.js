@@ -27,32 +27,54 @@ Page({
    */
   onLoad: function(options) {
     //id
+    wx.showLoading({
+      title: '加载中...',
+    })
     const bid = options.bid;
    // console.log(bid);
     const detail = bookModel.getDetail(bid);
     const comments = bookModel.getComments(bid);
    // console.log(comments);
     const likeStatus = bookModel.getLikeStatus(bid);
-    detail.then(res => {
+    //1 2 3 wx.hideloading()
+    //同时发送三个请求 并行
+    //新的Promise 合体
+    // 2是
+    Promise.all([detail,comments,likeStatus])
+    .then(res=>{
+      console.log(res)
       this.setData({
-        book: res.data
-      })
-      console.log("this is detail:" + res.data);
-    })
-    comments.then(res => {
-      this.setData({
-        comments: res.data.comments
-      })
-      console.log("this is comments:" + comments.count);
-    })
-    likeStatus.then(res => {
-      this.setData({
-        likeStatus: res.data.like_status,
-        likeCount: res.data.fav_nums
-      })
+        book:res[0].data,
+        comments:res[1].data.comments,
+        likeStatus:res[2].data.like_status,
+        likeCount:res[2].data.fav_nums
 
-      console.log("this is likeStatus:" + likeStatus + " " + res.data.fav_nums);
+      })
+      wx.hideLoading()
     })
+
+    //一下三个promise组合成以上代码了
+    // detail.then(res => {
+    //   this.setData({
+    //     book: res.data
+    //   })
+    //   console.log("this is detail:" + res.data);
+    //   wx.hideLoading()
+    // })
+    // comments.then(res => {
+    //   this.setData({
+    //     comments: res.data.comments
+    //   })
+    //   console.log("this is comments:" + comments.count);
+    // })
+    // likeStatus.then(res => {
+    //   this.setData({
+    //     likeStatus: res.data.like_status,
+    //     likeCount: res.data.fav_nums
+    //   })
+
+    //   console.log("this is likeStatus:" + likeStatus + " " + res.data.fav_nums);
+    // })
   },
 
   onLike(event) {

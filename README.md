@@ -177,7 +177,29 @@ git学习
 
 2018-10-8
 13-13短评 本章节 三个问题 1界面样式问题  《问题解决》 修改了book-detail下的 head image样式
-                        2关于filter.wsx下limit无法使用问题
-                        3 book-detail.js下onPost函数book-detail.js? 
-                        Uncaught (in promise) TypeError: _this2.data.comments.unshift is not a function
+                        2关于filter.wsx下limit无法使用问题              《问题解决》
+                        3 book-detail.js下onPost函数book-detail.js?    《问题解决》
+                        Uncaught (in promise) TypeError: _this2.data.comments.unshift is not a function  
                         问题
+
+2018-10-9
+消除了 10-8filter.wsxx下  报的limit问题 解决方法是将 book-detail下的
+      this.setData({
+        comments: res.data
+      })
+      写成
+      this.setData({
+        comments: res.data.comments
+      })
+
+同时 10-8第三个问题也同时消失 应该是数据绑定问题
+==================================================
+14-1 并行请求与串行请求
+14-2 Promise.all 与 Promise.race
+14-3 search界面
+
+2018-10-10
+14-4
+自定义组件的models目录探讨
+14-5
+数据结构队列的应用

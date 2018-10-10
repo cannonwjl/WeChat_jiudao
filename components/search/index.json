@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "w-tag":"/components/tag/index"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "usingComponents":{
-    "w-book":"/components/book/index"
-    
+    "w-book":"/components/book/index",
+    "w-search":"/components/search/index"
   }
 }
