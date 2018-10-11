@@ -11,6 +11,16 @@ class BookModel extends HTTP
        url:'book/hot_list'
        });
   } 
+  search(start,q)
+  {
+    return this.request({
+      url:"book/search?summary=1",
+      data:{
+         q:q,
+         start:start
+      }
+    })
+  }
   getMyBookCount()
   {
     return this.request({

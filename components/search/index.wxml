@@ -2,13 +2,13 @@
   <view class='header'>
     <view class='search-container'>
       <image class='icon' src='images/search.png'></image>
-       <input bind:confirm="onConfirm" placeholder-class='in-bar' placeholder='输入关键字' class='bar' auto-focus='true'></input>
-       <image class='cancel-img' src='images/cancel.png'></image>
+       <input  value='{{q}}' bind:confirm="onConfirm" placeholder-class='in-bar' placeholder='输入关键字' class='bar' auto-focus='true'></input>
+       <image bind:tap="onDelete" class='cancel-img' src='images/cancel.png'></image>
     </view>
     <view class='cancel' bind:tap="onCancel" >取消</view>
   </view>
 
-<view>
+<view wx:if="{{!searching}}">
    <view class='history'>
    <view class='title'>
        <view class='chunk'></view>
@@ -16,7 +16,7 @@
    </view>
       <view class='tags'>
          <block wx:for="{{historyWords}}">
-            <w-tag text="{{item}}" />
+            <w-tag bind:tapping="onConfirm" text="{{item}}" />
          </block>
         </view>
    <view class='history hot-search'>
@@ -24,8 +24,18 @@
         <view class='chunk'></view>
         <text>热门搜索</text>
       </view>
+      <view class='tags'>
+        <block wx:key="" wx:for="{{hotWords}}">
+          <w-tag bind:tapping="onConfirm" text="{{item}}" />
+        </block>
+      </view>
    </view>
    </view>
 </view>
+    <view class='books-container' wx:if="{{searching}}">
+      <block wx:for="{{dataArray}}" wx:key="{{item.id}}">
+        <w-book book="{{item}}" class="book" />
+      </block>
+    </view>
 </view>
 
