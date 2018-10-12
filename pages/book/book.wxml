@@ -38,4 +38,4 @@ or
   </view>
 
 </view>
-<w-search bind:cancel="onCancel" wx:if="{{searching}}" />
+<w-search more="{{more}}" bind:cancel="onCancel" wx:if="{{searching}}" />

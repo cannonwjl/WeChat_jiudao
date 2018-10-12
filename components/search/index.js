@@ -8,7 +8,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    more:{ 
+      type:String,
+      observer:'_load_more'
+    }
   },
 
   /**
@@ -35,15 +38,19 @@ Component({
 
     keywordModel.getHot().then(res => {
       this.setData({
-        hotWords:res.hot
+        hotWords:res.data.hot
       })
-      console.log("+++++++++++++++++++++++++++++++++++++"+res)
+     // console.log("+++++++++++++++++++++++++++++++++++++" + hotWords)
     })
   },
   /**
    * 组件的方法列表
    */
   methods: {
+    _load_more(event)
+    {
+        console.log(1232)
+    },
     onCancel(event)
     {
       this.triggerEvent('cancel',{},{})
@@ -66,7 +73,7 @@ Component({
       bookModel.search(0,q)
       .then(res=>{
         this.setData({
-          dataArray: res.books,
+          dataArray: res.data.books,
           q:q
         })
           

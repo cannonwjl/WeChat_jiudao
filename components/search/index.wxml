@@ -24,12 +24,13 @@
         <view class='chunk'></view>
         <text>热门搜索</text>
       </view>
-      <view class='tags'>
+     <!-- 这是hotword{{hotWords}} -->
+   </view>
+     <view class='tags'>
         <block wx:key="" wx:for="{{hotWords}}">
           <w-tag bind:tapping="onConfirm" text="{{item}}" />
         </block>
       </view>
-   </view>
    </view>
 </view>
     <view class='books-container' wx:if="{{searching}}">
