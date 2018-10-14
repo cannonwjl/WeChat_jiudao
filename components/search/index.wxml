@@ -38,5 +38,8 @@
         <w-book book="{{item}}" class="book" />
       </block>
     </view>
+    <w-loading class="loading-center" wx:if="{{loadingCenter}}"/>
+    <w-loading class="loading"  wx:if="{{loading}}"/>
+    <view wx:if="{{noneResult}}" class='empty-tip'>没有搜索到书籍</view>
 </view>
 
