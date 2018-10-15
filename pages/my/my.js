@@ -7,60 +7,50 @@ Page({
   data: {
 
   },
+  getUserInfo()
+  {
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.userAuthorized()
+    //用户是否授权
+    //  wx.getUserInfo({
+    //    success:data=>{
+    //      console.log(data)
+    //    }
+    //  })
+     //弹窗 
+     //询问是否授权
+     //API
+     //button 组件 UI 让用户主动电机Button
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  userAuthorized(){
+    wx.getSetting({
+      success:data=>{
+        console.log(data)
+        if(data.authSetting['scope.userInfo'])
+        {
+            wx.getUserInfo({
+              success:data=>{
+                console.log(data)
+              }
+            })
+        }else
+        {
+            console.log("err")
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  getUserInfo(event){
+ //   console.log(event)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onGetUserInfo(event)
+  {
+    const userInfo=event.detail.userInfo
+    console.log(userInfo)
   }
 })

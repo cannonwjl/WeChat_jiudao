@@ -1,6 +1,12 @@
 <view class='container'>
   <image src='/images/my/my@bg.png' class='bg'></image>
-  
+  <!-- <open-data class="avatar avatar-position" type="userAvatarUrl"></open-data> -->
+  <!-- //注意这里的open-type是组件image-button下index.js 的openType 属性 那里用驼峰写法 这里用连字符  必须这么写  与小程序提供的open-type重名 减少学习成本-->
+  <w-button
+   open-type="getUserInfo" class="avatar-position"
+   bind:getuserinfo="onGetUserInfo">
+    <image slot="img" class='avatar' src=".images/my/my.png">
+  </w-button>
   <view class='about-container'>
     <view class='about-us'>
       <image src='/images/my/about.png'></image>
@@ -11,4 +17,5 @@
 
     </view>
   </view>
+  <!-- <button open-type='getUserInfo' bindgetuserinfo='getUserInfo' >授权</button> -->
 </view>

@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -46,6 +46,11 @@
 					"name": "book调试",
 					"pathName": "pages/book-detail/book-detail",
 					"query": "bid=1120"
+				},
+				{
+					"id": -1,
+					"name": "abut_my",
+					"pathName": "pages/my/my"
 				}
 			]
 		}

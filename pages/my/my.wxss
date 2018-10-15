@@ -17,9 +17,10 @@
   height: 120rpx;
 }
 .avatar{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
 }
 .about-container{
   padding: 0 100rpx;
