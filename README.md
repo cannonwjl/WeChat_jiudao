@@ -237,3 +237,8 @@ git学习
 2018-10-15 
 16-2 open-data只是显示用户信息 无法获取
 16-3 新版微信授权
+16-4 wx.getUserInfo需要用户先授权
+16-5 通过opensetting判断是否授权
+16-6 自定义button信息
+16-7 有open-data还需要getUserInfo
+
