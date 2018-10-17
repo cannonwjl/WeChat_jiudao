@@ -9,6 +9,9 @@ Component({
      },
     count:{
       type:Number,
+    },
+    readOnly:{
+      type:Boolean
     }
   },
 
@@ -31,10 +34,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onLike:function()
+    onLike:function(event)
     {
      //自定义事件
-
+        if(this.properties.readOnly)
+        {
+          return
+        }
       // var /全局变量    let //局部变量
       var like=this.properties.like;
       var count=this.properties.count;

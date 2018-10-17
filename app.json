@@ -6,7 +6,10 @@
     "pages/logs/index",
     "components/classic/movie/index",
     "components/epsoide/index",
-    "pages/book-detail/book-detail"
+    "pages/book-detail/book-detail",
+    "pages/classic-detail/classic-detail",
+    "pages/about/about",
+    "pages/course/course"
   ],
   "window": {
     "navigationBarTitleText": "Waka-can",

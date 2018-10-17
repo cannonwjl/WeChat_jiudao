@@ -6,18 +6,24 @@
   <view class='chunk color3'>3</view>
 </view> -->
 <!-- //自定义组件 -->
-<view class='container' >
-<view class='header'>
-  <w-epsoide class="epsoide" index="{{classic.data.index}}" />
-  <w-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
-</view>
+<view class='container'>
+  <view class='header'>
+    <w-epsoide class="epsoide" index="{{classic.data.index}}" />
+    <view class='like-container'>
+        <w-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+        <w-button class='share-btn' open-type='share'>
+          <image class='share' slot="img" src="/images/icon/share.png"></image>
+        </w-button>
+    </view>
 
-<!-- <text>{{test}}</text> -->
-<w-movie  wx:if="{{classic.data.type==100}}" img="{{classic.data.image}}" content="{{classic.data.content}}" />
-<w-music  wx:if="{{classic.data.type==200}}" img="{{classic.data.image}}" content="{{classic.data.content}}" src="{{classic.data.url}}" />
-<w-essay  wx:if="{{classic.data.type==300}}" img="{{classic.data.image}}" content="{{classic.data.content}}" />
+  </view>
+
+  <!-- <text>{{test}}</text> -->
+  <w-movie wx:if="{{classic.data.type==100}}" img="{{classic.data.image}}" content="{{classic.data.content}}" />
+  <w-music wx:if="{{classic.data.type==200}}" img="{{classic.data.image}}" content="{{classic.data.content}}" src="{{classic.data.url}}" />
+  <w-essay wx:if="{{classic.data.type==300}}" img="{{classic.data.image}}" content="{{classic.data.content}}" />
 
 
-<w-navi   bind:left="onNext"  bind:right="onPrevious" title="{{classic.data.title}}" latest="{{latest}}"  first="{{first}}"  class='navi' />
+  <w-navi bind:left="onNext" bind:right="onPrevious" title="{{classic.data.title}}" latest="{{latest}}" first="{{first}}" class='navi' />
 
 </view>

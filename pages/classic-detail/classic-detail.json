@@ -1,0 +1,7 @@
+{
+ "component" :true,
+ "usingComponents":{
+   "w-classic":"/pages/classic/classic"
+ }
+  
+  }

@@ -7,6 +7,10 @@ let likeModel = new LikeModel()
 // pages/classic/classic.js
 Page({
 
+properties:{
+  cid:Number,
+  type:Number
+},
   /**
    * 页面的初始数据
    */
@@ -19,6 +23,30 @@ Page({
     likeCount:0,
     likeStatus:false,
   },
+  // attached(options) {
+  //   const cid = this.properties.cid
+  //   const type = this.properties.type
+  //   if (!cid) {
+  //     classicModel.getLatest((res) => {
+  //       this.setData({
+  //         classic: res,
+  //         likeCount: res.fav_nums,
+  //         likeStatus: res.data.like_status
+  //       })
+  //     })
+  //   }
+  //   else {
+  //     classicModel.getById(cid, type, res => {
+  //       this._getLikeStatus(res.data.id, res.data.type)
+  //       this.setData({
+  //         classic: res,
+  //         latest: classicModel.isLatest(resdd.index),
+  //         first: classicModel.isFirst(res.data.index)
+  //       })
+  //     })
+  //   }
+  // },
+
 
   /**
    * 生命周期函数--监听页面加载

@@ -56,6 +56,12 @@ class BookModel extends HTTP
       }
     })
   }
+  getBookCount()
+  {
+    return this.request({
+      url:'/book/favor/count'
+    })
+  }
 }
 
 export {BookModel}

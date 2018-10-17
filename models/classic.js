@@ -55,6 +55,13 @@ class ClassicModel extends HTTP{
     return latestIndex == index ? false:true
    // return true
   }
+  getMyFavor(success) {
+    const params = {
+      url: 'classic/favor',
+      success: success
+    }
+    this.request(params)
+  }
 
   _setLatestIndex(index)
   {
